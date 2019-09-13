@@ -6,6 +6,8 @@
 #' 
 #' @author Shona Wilde
 #' 
+#' @return data frame
+#' 
 #' @export
 
 read_ceda_aq_files <- function(file) {
