@@ -1,0 +1,15 @@
+Package: shonarrr
+Version: 0.0.1
+Date: 2019-09-13
+Title: shonarrr
+Decription: 
+Author: Shona Wilde
+Maintainer: Shona Wilde <sw1255@york.ac.uk>
+URL: https://github.com/shonawilde/shonarrr
+Encoding: UTF-8
+Depends:
+  dplyr,
+  purrr,
+  stringr,
+  readr
+RoxygenNote: 6.1.1
