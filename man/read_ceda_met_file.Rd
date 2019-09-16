@@ -4,10 +4,12 @@
 \alias{read_ceda_met_file}
 \title{Read CEDA Meteorology}
 \usage{
-read_ceda_met_file(file)
+read_ceda_met_file(file, site)
 }
 \arguments{
 \item{file}{path to file}
+
+\item{site}{"KM" or "LP"}
 }
 \value{
 data frame
