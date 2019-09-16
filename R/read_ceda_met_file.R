@@ -1,3 +1,14 @@
+#' Read CEDA met
+#'
+#' Reads and cleans CEDA met Files
+#'
+#' @param file path to file
+#' 
+#' @author Shona Wilde
+#' 
+#' @return data frame
+#' 
+#' @export
 
 read_ceda_met_files <- function(file) {
   
