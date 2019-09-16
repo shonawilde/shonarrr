@@ -9,6 +9,9 @@ read_ceda_aq_files(file)
 \arguments{
 \item{file}{path to file}
 }
+\value{
+data frame
+}
 \description{
 Reads and cleans CEDA AQ Files
 }

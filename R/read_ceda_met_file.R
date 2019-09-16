@@ -49,4 +49,3 @@ read_ceda_met_files <- function(file) {
   
   return(df)
 }
-
