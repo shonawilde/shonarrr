@@ -40,7 +40,7 @@ read_ceda_aq_files <- function(file) {
     read_table2(col_names = F) %>% 
     purrr::set_names(variable_names) %>% 
     mutate(date = date + secs) %>% 
-    select(date, everything())
+    select(date, everything(), -secs)
   
   return(df)
 }
