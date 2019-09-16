@@ -29,7 +29,8 @@ read_ceda_aq_file <- function(file) {
   # get variable names
   variable_names <- text[str_which(text, "Time in minutes"): str_which(text, "Ozone precision") + 4L] %>% 
     str_to_lower() %>% 
-    str_rm_round_brackets()
+    str_rm_round_brackets() %>% 
+    str_replace(" ", "_")
   
   # drop extra variable names
   drop_vals = (length(variable_names)-5):length(variable_names)
