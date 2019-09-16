@@ -24,7 +24,7 @@ read_ceda_aq_file <- function(file) {
     str_split_fixed("since", 2) %>% 
     nth(2) %>% 
     str_remove(" ") %>% 
-    ymd_h()
+    ymd_hm()
   
   # get variable names
   variable_names <- text[str_which(text, "Time in minutes"): str_which(text, "Ozone precision") + 4L] %>% 
@@ -40,7 +40,7 @@ read_ceda_aq_file <- function(file) {
   df <- text[(stringr::str_which(text, "4 - bad data") + 3L):length(text)] %>% 
     read_table2(col_names = F) %>% 
     purrr::set_names(variable_names) %>% 
-    mutate(date = date + mins) %>% 
+    mutate(date = date + mins*60) %>% 
     select(date, everything(), -mins)
   
   return(df)

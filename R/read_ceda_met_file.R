@@ -26,7 +26,7 @@ read_ceda_met_file <- function(file, site){
     str_split_fixed("since", 2) %>% 
     nth(2) %>% 
     str_remove(" ") %>% 
-    ymd_h()
+    ymd_hm()
   
   # get variable names
   variable_names <- text[str_which(text, "time in minutes"): str_which(text, "bad") + 4L] %>% 
@@ -57,7 +57,7 @@ read_ceda_met_file <- function(file, site){
   df <- text[(stringr::str_which(text, "bad") + 4L):length(text)] %>% 
     read_table2(col_names = F) %>% 
     purrr::set_names(variable_names) %>% 
-    mutate(date = date + mins) %>% 
+    mutate(date = date + mins*60) %>% 
     select(date, everything(), -mins)
   
   return(df)
