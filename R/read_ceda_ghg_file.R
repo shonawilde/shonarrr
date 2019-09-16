@@ -17,7 +17,7 @@ read_ceda_ghg_file <- function(file) {
   text <- readr::read_lines(file)
   
   # isolate preamble
-  df_preamble <- text[2:(which(text %in% "2-Bad/missing data"))]
+  df_preamble <- text[2:(str_which(text, "Bad/missing data"))]
   
   # get date
   date <- text[str_which(text, "Time in minutes")] %>% 
@@ -30,7 +30,7 @@ read_ceda_ghg_file <- function(file) {
   variable_names <- c("mins", "co2", "co2_flag", "ch4", "ch4_flag")
   
   # read tablular data
-  df <- text[(stringr::str_which(text, "2-Bad/missing data") + 1L):length(text)] %>% 
+  df <- text[(stringr::str_which(text, "Bad/missing data") + 1L):length(text)] %>% 
     read_table2(col_names = F) %>% 
     purrr::set_names(variable_names) %>% 
     mutate(date = date + mins) %>% 
