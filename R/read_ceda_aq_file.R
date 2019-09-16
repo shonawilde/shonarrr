@@ -24,7 +24,7 @@ read_ceda_aq_file <- function(file) {
     str_split_fixed("since", 2) %>% 
     nth(2) %>% 
     str_remove(" ") %>% 
-    ymd_hm()
+    ymd_h()
   
   # get variable names
   variable_names <- text[str_which(text, "Time in minutes"): str_which(text, "Ozone precision") + 4L] %>% 

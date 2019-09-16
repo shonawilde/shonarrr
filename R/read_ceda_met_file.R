@@ -26,7 +26,7 @@ read_ceda_met_file <- function(file, site){
     str_split_fixed("since", 2) %>% 
     nth(2) %>% 
     str_remove(" ") %>% 
-    ymd_hm()
+    ymd_h()
   
   # get variable names
   variable_names <- text[str_which(text, "time in minutes"): str_which(text, "bad") + 4L] %>% 

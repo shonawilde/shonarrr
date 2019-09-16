@@ -24,7 +24,7 @@ read_ceda_ghg_file <- function(file) {
     str_split_fixed("since", 2) %>% 
     nth(2) %>% 
     str_remove(" ") %>% 
-    ymd_hm()
+    ymd_h()
   
   # col names
   variable_names <- c("mins", "co2", "co2_flag", "ch4", "ch4_flag")
