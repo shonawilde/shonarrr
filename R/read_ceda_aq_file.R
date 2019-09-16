@@ -1,6 +1,6 @@
-#' Read CEDA AQ
+#' Read CEDA Air Quality
 #'
-#' Reads and cleans CEDA AQ Files
+#' Reads and cleans CEDA AQ files
 #'
 #' @param file path to file
 #' 
@@ -10,7 +10,7 @@
 #' 
 #' @export
 
-read_ceda_aq_files <- function(file) {
+read_ceda_aq_file <- function(file) {
   
   
   # read all of text
@@ -33,14 +33,14 @@ read_ceda_aq_files <- function(file) {
   
   # drop extra variable names
   drop_vals = (length(variable_names)-5):length(variable_names)
-  variable_names <- c("secs", variable_names[-drop_vals])
+  variable_names <- c("mins", variable_names[-drop_vals])
   
   # read tablular data
   df <- text[(stringr::str_which(text, "4 - bad data") + 3L):length(text)] %>% 
     read_table2(col_names = F) %>% 
     purrr::set_names(variable_names) %>% 
-    mutate(date = date + secs) %>% 
-    select(date, everything(), -secs)
+    mutate(date = date + mins) %>% 
+    select(date, everything(), -mins)
   
   return(df)
 }

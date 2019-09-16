@@ -1,6 +1,6 @@
-#' Read CEDA met
+#' Read CEDA Meteorology
 #'
-#' Reads and cleans CEDA met Files
+#' Reads and cleans CEDA met files
 #'
 #' @param file path to file
 #' 
@@ -10,7 +10,7 @@
 #' 
 #' @export
 
-read_ceda_met_files <- function(file) {
+read_ceda_met_file <- function(file) {
   
   
   # read lines
@@ -38,14 +38,14 @@ read_ceda_met_files <- function(file) {
   
   # drop extra variable names
   drop_vals = (length(variable_names)-8):length(variable_names)
-  variable_names <- c("secs", variable_names[-drop_vals])
+  variable_names <- c("mins", variable_names[-drop_vals])
   
   # read tablular data
   df <- text[(stringr::str_which(text, "4-bad data") + 4L):length(text)] %>% 
     read_table2(col_names = F) %>% 
     purrr::set_names(variable_names) %>% 
-    mutate(date = date + secs) %>% 
-    select(date, everything(), -secs)
+    mutate(date = date + mins) %>% 
+    select(date, everything(), -mins)
   
   return(df)
 }
