@@ -3,3 +3,5 @@
 export(read_ceda_aq_file)
 export(read_ceda_ghg_file)
 export(read_ceda_met_file)
+export(theme_shona_less_minimal)
+export(theme_shona_white_big)
