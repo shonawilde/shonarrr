@@ -23,6 +23,8 @@ calculate_percentiles <- function(x, probs = c(0.01, 0.1, 0.25, 0.5, 0.75, 0.95,
   sd <- sd(x)
   mean <- mean(x)
   se <- sd/sqrt(n)
+  max <- max(x)
+  min = min(x)
   
   # calculate quantiles
   quantiles <- quantile(x, probs = probs) %>% 
@@ -30,7 +32,7 @@ calculate_percentiles <- function(x, probs = c(0.01, 0.1, 0.25, 0.5, 0.75, 0.95,
     spread(name, value)
   
   # bind into tibble
-  df <- tibble(n, sd, mean, se) %>% 
+  df <- tibble(n, min, max, sd, mean, se) %>% 
     bind_cols(quantiles)
   
   return(df)
