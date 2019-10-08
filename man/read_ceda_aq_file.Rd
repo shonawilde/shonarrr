@@ -4,13 +4,19 @@
 \alias{read_ceda_aq_file}
 \title{Read CEDA Air Quality}
 \usage{
-read_ceda_aq_file(file)
+read_ceda_aq_file(file, longer = FALSE, verbose = FALSE)
 }
 \arguments{
-\item{file}{path to file}
+\item{file}{path to file.}
+
+\item{longer}{Should the return be reshaped to be in a "tidy data" format? 
+This operation is a bit slow.}
+
+\item{verbose}{Should the function give messages on what file is being 
+processed?}
 }
 \value{
-data frame
+Data frame/tibble
 }
 \description{
 Reads and cleans CEDA AQ files
