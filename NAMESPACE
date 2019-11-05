@@ -3,6 +3,7 @@
 export(calculate_percentiles)
 export(conv_gps)
 export(data_capture)
+export(get_flight_events)
 export(read_ceda_aq_file)
 export(read_ceda_ghg_file)
 export(read_ceda_met_file)

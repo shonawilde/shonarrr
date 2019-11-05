@@ -2,7 +2,7 @@
 #'
 #' Reads and cleans core nitrates FAAM file
 #'
-#' @param core_file_list List containing core nitrates file names
+#' @param nitrates_file_list List containing core nitrates file names
 #' 
 #' @author Shona Wilde
 #' 
@@ -11,9 +11,9 @@
 #' @export
 
 
-read_core_nitrates_data <- function(nitrtes_file_list, verbose = TRUE) {
+read_core_nitrates_data <- function(nitrates_file_list, verbose = TRUE) {
   
-  map_dfr(nitrtes_file_list, read_core_nitrates_worker,
+  map_dfr(nitrates_file_list, read_core_nitrates_worker,
           verbose = verbose)
 }
 

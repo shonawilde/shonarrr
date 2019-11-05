@@ -2,15 +2,28 @@
 #'
 #' Reads and cleans flight summary from aircraft
 #'
-#' @param x file
+#' @param flight_sum_list List of flight summaries
 #' 
-#' @author Stuart Grange
+#' @param create_end_time Time in minutes to manually create an end time for range events
+#'  if these are missing in the flight summary. End times are required for \code{flight_range_subset}.
+#'  Defualt is 10 mins as this is a typical length of an aircraft run.
+#' 
+#' @author Stuart Grange / Shona Wilde
 #' 
 #' @return df
 #' 
 #' @export
 
-read_faam_flight_summary <- function(file, verbose) {
+
+read_faam_flight_summary <- function(flight_sum_list, create_end_time = 10, verbose = T){
+  
+  map_dfr(flight_sum_list, read_faam_flight_summary_worker,
+          create_end_time = create_end_time,
+          verbose = verbose)
+  
+}
+
+read_faam_flight_summary_worker <- function(file, create_end_time, verbose) {
   
   # Message to user
   if (verbose) message(threadr::date_message(), "`", file, "`...")
@@ -48,12 +61,21 @@ read_faam_flight_summary <- function(file, verbose) {
       readr::read_fwf(col_positions = readr::fwf_widths(c(7, 7, 19, 17, 30))) %>% 
       purrr::set_names(variable_names) %>% 
       dplyr::mutate(date_start = stringr::str_c(df_preamble$date, " ", time),
-             date_start = lubridate::ymd_hms(date_start, tz = "UTC"),
-             date_end = stringr::str_c(df_preamble$date, " ", time_end),
-             date_end = lubridate::ymd_hms(date_end, tz = "UTC")) %>% 
+                    date_start = lubridate::ymd_hms(date_start, tz = "UTC"),
+                    date_end = stringr::str_c(df_preamble$date, " ", time_end),
+                    date_end = lubridate::ymd_hms(date_end, tz = "UTC"),
+                    event = str_to_lower(event),
+                    point_event = if_else(is.na(date_end), 1, 0),
+                    range_event = if_else(str_detect(event, "run|profile"), 1, 0)) %>% 
       dplyr::select(-time,
-             -time_end)
+                    -time_end)
   )
+  
+  # create manual end time if missing from flight summary
+  df <- df %>% 
+    mutate(date_end = if_else(is.na(date_end) & range_event == 1,
+                              date_start + (create_end_time * 60), date_end))
+  
   
   # Bind the preamble and tabular data together
   df <- df_preamble %>% 

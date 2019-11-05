@@ -4,10 +4,10 @@
 \alias{read_core_nitrates_data}
 \title{Read  FAAM core nitrates file}
 \usage{
-read_core_nitrates_data(nitrtes_file_list, verbose = TRUE)
+read_core_nitrates_data(nitrates_file_list, verbose = TRUE)
 }
 \arguments{
-\item{core_file_list}{List containing core nitrates file names}
+\item{nitrates_file_list}{List containing core nitrates file names}
 }
 \value{
 Tibble

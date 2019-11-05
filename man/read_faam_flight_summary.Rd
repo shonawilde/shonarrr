@@ -4,10 +4,15 @@
 \alias{read_faam_flight_summary}
 \title{Read FAAM flight summary}
 \usage{
-read_faam_flight_summary(file, verbose)
+read_faam_flight_summary(flight_sum_list, create_end_time = 10,
+  verbose = T)
 }
 \arguments{
-\item{x}{file}
+\item{flight_sum_list}{List of flight summaries}
+
+\item{create_end_time}{Time in minutes to manually create an end time for range events
+if these are missing in the flight summary. End times are required for \code{flight_range_subset}.
+Defualt is 10 mins as this is a typical length of an aircraft run.}
 }
 \value{
 df
@@ -16,5 +21,5 @@ df
 Reads and cleans flight summary from aircraft
 }
 \author{
-Stuart Grange
+Stuart Grange / Shona Wilde
 }
