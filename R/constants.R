@@ -16,7 +16,7 @@ gravitational_constant <- function() 9.81
 
 specific_gas_constant <- function() 287.04
 
-air_number_density <- function() 2.49e19
+air_number_density <- function() 2.46e19
 
 molar_mass_ch4 <- function() 16.01
 
@@ -25,3 +25,4 @@ molar_mass_ethane <- function() 30.07
 molar_mass_co2 <- function() 44.01
 
 avogadro <- function() 6.03e23
+

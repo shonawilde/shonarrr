@@ -4,7 +4,7 @@ flux_molec_to_kg <- function(flux, gas){
   
   mw_gas <- case_when(
     gas %in% c("ch4", "methane") ~ 16.01,
-    gas %in% c("c2h6", "ethane") ~ 30.07,
+    gas %in% c("c2h6", "ethane", "ethane_icl") ~ 30.07,
     gas %in% c("c3h8", "propane") ~ 44.1
   )
   
