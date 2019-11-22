@@ -1,0 +1,41 @@
+
+molecular_mass_table <- function() {
+  
+  dplyr::tribble(
+    ~variable, ~molecular_mass,
+    "o3", 48,
+    "co", 28.01,
+    "no", 30.01,
+    "no2",46.0055,
+    "nox", 46.0055,
+    "co2", 44.01,
+    "so2", 64.066,
+    "h2s", 34.08,
+    c("ch4", "methane"), 16.01,
+    "o2", 31.9988,
+    "nh3", 17.031,
+    c("ethane", "c2h6"), 30.07,
+    c("ethene", "c2h4"), 28.05,
+    c("acetylene","ethyne", "c2h2"), 26.04,
+    c("propane", "c3h8"), 44.1,
+    c("propene", "c3h6"),42.08,
+    c("iso-butane", "i-butane", "2-methylpropane"),58.12,
+    c("n-butane", "c4h10"),58.12,
+    c("trans-2-butene", "2-butene", "c4h8"), 56.106,
+    c("cis-2-butene","2-butene", "c4h8"), 56.1,
+    c("but-1-ene", "1-butene", "butene"), 56.11,
+    c("iso-pentane", "i-pentane", "2-methylbutane"), 72.15,
+    c("n-pentane", "c5h12"), 72.15,
+    c("1,3-butadiene", "butadiene"), 54.0916,
+    c("trans-2-pentene", "2-pentene"), 70.13,
+    c("pent-1-ene", "pentene", "c5h10"), 70.13,
+    c("2,3-methyl pentanes", "2,3-dimethylbutane"), 86.1754,
+    c("hexane", "c6h14"), 86.18,
+    c("isoprene", "c5h8"), 68.12,
+    c("heptane", "n-heptane", "c7h16"), 100.21,
+    c("benzene", "c6h6"), 78.11,
+    c("224-TMP", "2,2,4-tmp", "iso-octane", "2,2,4-trimethylpentane"), 114.232,
+    c("octane", "n-octane"), 114.23,
+    c("toluene", "methylbenzene", "c7h8"), 92.14
+  ) 
+}
