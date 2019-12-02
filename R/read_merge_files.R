@@ -38,6 +38,7 @@ read_merge_file_worker <- function(file, verbose = verbose) {
                       start = 1,
                       end = 4)
   
+  # read all formats of date
   df <- read.csv(file) %>% 
     rename_all(. %>% tolower()) %>% 
     mutate(flight_no = flight_no,
@@ -47,6 +48,28 @@ read_merge_file_worker <- function(file, verbose = verbose) {
              ymd_hms(date) %>% is.na(),
              dmy_hms(date),
              ymd_hms(date)))
+  
+  # Determine if file contains high and reduced quality ICL data
+  is_hq_rq <- grepl_all(names(df), "ethane_rq")
+  
+  # combine all ethane data into one column
+  if (is_hq_rq) {
+    
+    df <- df %>% 
+      mutate(ethane_icl = if_else(
+        !is.na(ethane_hq_icl),
+        ethane_hq_icl, 
+        ethane_rq_icl),
+        ethane_flag = if_else(
+          !is.na(ethane_hq_flag),
+          ethane_hq_flag,
+          ethane_rq_flag
+        )
+      )
+    
+  }
+  
+
   
   # set and replace names
   variable_names <- names(df) %>% 
@@ -58,7 +81,8 @@ read_merge_file_worker <- function(file, verbose = verbose) {
       name_orig,
       name_replace
     ))
-  
+
+  # set df names and re-arrange
   df <- df %>% 
     set_names(variable_names %>% 
                 pull(name_replace)) %>% 
@@ -94,7 +118,7 @@ aircraft_variables_lookup <- function(){
     "no2_pptv", "no2",
     "picarro_h2o", "h2o",
     "co2_ppm", "co2",
-    "ch4_ppm", "ch4",
+    #"ch4_ppm", "ch4",
     "flight", "flight_no"
     
   )
