@@ -4,10 +4,12 @@
 \alias{conv_gps}
 \title{Convert GPS}
 \usage{
-conv_gps(coord)
+conv_gps(coord, direction)
 }
 \arguments{
-\item{coord}{lat/long}
+\item{coord}{latitude or longitude column to be converted}
+
+\item{direction}{column containing directional component of coordinates (N, S, E, W)}
 }
 \value{
 value
