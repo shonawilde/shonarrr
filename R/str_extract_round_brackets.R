@@ -1,12 +1,12 @@
 #' Extract text within round brackets
 #'
-#' Extracts texts contained within round brackets in character strings
-#'
-#' @param x string
+#' Extracts texts contained within round brackets
+#' 
+#' @param x Input string
 #' 
 #' @author Shona Wilde
 #' 
-#' @return string
+#' @return Output string
 #' 
 #' @export
 

@@ -7,13 +7,13 @@
 str_extract_round_brackets(x)
 }
 \arguments{
-\item{x}{string}
+\item{x}{Input string}
 }
 \value{
-string
+Output string
 }
 \description{
-Extracts texts contained within round brackets in character strings
+Extracts texts contained within round brackets
 }
 \author{
 Shona Wilde
