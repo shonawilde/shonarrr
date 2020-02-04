@@ -4,7 +4,7 @@
 \alias{read_syft_data}
 \title{Read SYFT data}
 \usage{
-read_syft_data(file)
+read_syft_data(file, guess_max = 10000)
 }
 \arguments{
 \item{file}{file}

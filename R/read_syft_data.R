@@ -10,9 +10,9 @@
 #' 
 #' @export
 
-read_syft_data <- function(file) {
+read_syft_data <- function(file, guess_max = 10000) {
   
-  df <- read_xlsx(file) %>% 
+  df <- read_xlsx(file, guess_max = guess_max) %>% 
     rename_all(. %>% tolower()) %>% 
     rename_all(. %>% str_rm_round_brackets()) %>% 
     rename_all(. %>% str_replace_all(" ", "")) %>% 
