@@ -25,7 +25,8 @@ theme_shona_white_big <- function() {
     theme(panel.grid.major.x = element_blank()) +
     theme(legend.background = element_blank()) +
     theme(legend.text = element_text(size = 20)) +
-    theme(legend.title = element_text(size = 20))
+    theme(legend.title = element_text(size = 20)) +
+    ggeasy::easy_all_text_colour(colour = "black")
    # theme(legend.key.size = unit(3, "point")) 
 
   
