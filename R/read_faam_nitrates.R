@@ -26,6 +26,17 @@ read_core_nitrates_worker <- function(file, verbose) {
   # Connection to ncdf file
   nc <- ncdf4::nc_open(file)
   
+  # get meta data from ncdf
+  meta_data <- nc %>% 
+    capture.output() 
+  
+  # flight_date <- meta_data[str_which(meta_data, "flight_date")] %>% 
+  #   str_split(":", simplify = F)  %>% 
+  #   map_chr(`[` (2)) %>% 
+  #   str_remove(" ") %>% 
+  #   paste0(" 00:00") %>% 
+  #   lubridate::dmy_hm()
+  
   # Get and format dates
   date_start <- nc$dim$time$units %>% 
     stringr::str_remove("seconds since ") %>% 
@@ -33,7 +44,12 @@ read_core_nitrates_worker <- function(file, verbose) {
   
   date <- date_start + as.vector(nc$dim$time$vals) 
   
-  flight_no = str_sub(file, start = -7, end = -4)
+  # get flight number
+  flight_no <- meta_data[str_which(meta_data, "flight_number")] %>% 
+    str_split(":", simplify = F)  %>% 
+    map_chr(`[` (2)) %>% 
+    str_remove(" ") %>% 
+    str_to_lower()
   
   # Get variable names
   variables <- names(nc$var)
@@ -66,12 +82,16 @@ read_core_nitrates_worker <- function(file, verbose) {
     map(select, -1:-2) %>%  
     reduce(bind_cols) %>% 
     mutate(date = rep(date, each = 10)) 
+  
   # extract all 1 Hz elements
   nc_array <- list_nc %>% 
     discard(is.matrix)
   
   # get array names
   names_array <- names(nc_array)
+  
+  # close connection
+  ncdf4::nc_close(nc)
   
   # clean and bind 1 Hz data
   data_1hz <- nc_array %>% 
