@@ -15,6 +15,7 @@ theme_shona_white_big <- function() {
     theme(strip.background = element_blank()) +               # facet title background
     theme(text = element_text(colour = "gray13", size = 15)) +
     theme(axis.text = element_text(colour = "gray13", size = 15)) +
+    theme(axis.ticks = element_line()) +
     theme(plot.title = element_text(colour = "gray13")) +
     theme(strip.text.x = element_text(colour = "gray13", face = "bold")) +
     theme(axis.title.y = element_text(size = 20,
