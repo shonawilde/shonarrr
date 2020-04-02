@@ -4,8 +4,7 @@
 \alias{calculate_percentiles}
 \title{Calculate percentiles}
 \usage{
-calculate_percentiles(x, probs = c(0.01, 0.1, 0.25, 0.5, 0.75, 0.95,
-  0.99))
+calculate_percentiles(x, probs = c(0.01, 0.1, 0.25, 0.5, 0.75, 0.95, 0.99))
 }
 \arguments{
 \item{x}{numeric vector}

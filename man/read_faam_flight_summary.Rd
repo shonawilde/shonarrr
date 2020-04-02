@@ -4,8 +4,7 @@
 \alias{read_faam_flight_summary}
 \title{Read FAAM flight summary}
 \usage{
-read_faam_flight_summary(flight_sum_list, create_end_time = 10,
-  verbose = T)
+read_faam_flight_summary(flight_sum_list, create_end_time = 10, verbose = T)
 }
 \arguments{
 \item{flight_sum_list}{List of flight summaries}

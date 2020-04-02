@@ -4,9 +4,14 @@
 \alias{calc_flux}
 \title{Calculate mass flux}
 \usage{
-calc_flux(wind_speed = ws, ground_speed = gspd_gin, alpha = alpha,
-  scale_height = scale_height, mixing_height = mixing_height,
-  plume_integral = plume_integral)
+calc_flux(
+  wind_speed = ws,
+  ground_speed = gspd_gin,
+  alpha = alpha,
+  scale_height = scale_height,
+  mixing_height = mixing_height,
+  plume_integral = plume_integral
+)
 }
 \arguments{
 \item{wind_speed}{Wind speed in ms-1}
