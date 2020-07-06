@@ -11,7 +11,8 @@
 
 plot_strava_gps <- function(activity_date = "2020-01-01") {
   
-  strava_data <- read_rds("C:/Users/Shona/Google Drive/Other/running/st_strava.rds")
+  strava_data <- sf::st_read("C:/Users/Shona/Google Drive/Other/running/st_strava.shp",
+                             quiet = T) 
   
   stopifnot("Data must be of class `sf`" =  stringr::str_detect(class(strava_data)[1], "sf|Spatial"))
   
@@ -34,3 +35,5 @@ plot_strava_gps <- function(activity_date = "2020-01-01") {
   return(plot)
   
 }
+
+
