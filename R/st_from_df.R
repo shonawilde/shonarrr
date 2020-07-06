@@ -17,7 +17,7 @@
 st_from_df <- function(df, latitude = "latitude", longitude = "longitude", crs = 4326){
   
   sf <- st_as_sf(df, 
-           coords = c(latitude, longitude),
+           coords = c(longitude, latitude),
            crs = crs)
   
   return(sf)
