@@ -1,11 +1,11 @@
 
 #' Function to find distinct rows from a spatial object
 #'
-#' @param obj object of class \code{sf} or \code{sfc}
+#' @param data Data with class \code{sf} or \code{sfc}
 #' 
 #' @param ... Optional variables to use when determining uniqueness.
 #' 
-#' @param .keep_all If \code{TRUE}, keep all variables in \code{obj}.
+#' @param .keep_all If \code{TRUE}, keep all variables in \code{data}.
 #' 
 #' @author Shona Wilde
 #' 
@@ -13,9 +13,9 @@
 #' 
 #' @export
 
-st_distinct <- function(obj, ..., .keep_all = FALSE){
+st_distinct <- function(data, ..., .keep_all = FALSE){
   
-  distinct_rows <- obj %>% 
+  distinct_rows <- data %>% 
     st_set_geometry(NULL) %>% 
     distinct(...)
   

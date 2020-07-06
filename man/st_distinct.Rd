@@ -4,14 +4,14 @@
 \alias{st_distinct}
 \title{Function to find distinct rows from a spatial object}
 \usage{
-st_distinct(obj, ..., .keep_all = FALSE)
+st_distinct(data, ..., .keep_all = FALSE)
 }
 \arguments{
-\item{obj}{object of class \code{sf} or \code{sfc}}
+\item{data}{Data with class \code{sf} or \code{sfc}}
 
 \item{...}{Optional variables to use when determining uniqueness.}
 
-\item{.keep_all}{If \code{TRUE}, keep all variables in \code{obj}.}
+\item{.keep_all}{If \code{TRUE}, keep all variables in \code{data}.}
 }
 \value{
 df
