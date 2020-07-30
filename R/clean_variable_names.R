@@ -55,15 +55,13 @@ clean_variable_names <- function(df, lookup_table, join_by = "variable") {
 #' 
 #' @param join_by Joining key in look-up table
 #' 
-#' @usage df %>% 
-#' mutate(variable = clean_variable_column(variable,
-#'  join_by = c("variable" = "variable_lookup"))
+#' @usage
+#'  df %>% 
+#'      mutate(variable = clean_variable_column(variable, join_by = c("variable" = "variable_lookup"))
 #' 
 #' @author Shona Wilde
 #' 
 #' @return Tibble
-#' 
-#' @rdname clean_variable_names
 #' 
 #' @export
 

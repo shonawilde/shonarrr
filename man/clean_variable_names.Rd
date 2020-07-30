@@ -2,14 +2,9 @@
 % Please edit documentation in R/clean_variable_names.R
 \name{clean_variable_names}
 \alias{clean_variable_names}
-\alias{clean_variable_column}
 \title{Function to clean variable names in data frame}
 \usage{
 clean_variable_names(lookup, join_by = c("variable" = "variable_lookup"))
-
-df %>% 
-mutate(variable = clean_variable_column(variable,
- join_by = c("variable" = "variable_lookup"))
 }
 \arguments{
 \item{df}{data}
@@ -17,21 +12,13 @@ mutate(variable = clean_variable_column(variable,
 \item{lookup_table}{A look-up table to be used for cleaning names}
 
 \item{join_by}{Joining key in look-up table}
-
-\item{x}{vector of names to clean}
 }
 \value{
-Tibble
-
 Tibble
 }
 \description{
 Function to clean variable names in data frame
-
-Function to clean variable strings contained in a column
 }
 \author{
-Shona Wilde
-
 Shona Wilde
 }
