@@ -26,7 +26,7 @@ theme_shona_less_minimal <- function() {
     theme(axis.title.x = element_text(size = 20,
                                       margin = margin(t = 20, r = 0, b = 0, l = 0))) +
     theme(panel.spacing = unit(1, "lines")) +
-    theme(panel.grid.major.x = element_blank()) +
+    theme(panel.grid.minor = element_blank()) +
     theme(legend.background = element_blank()) +
     theme(legend.text = element_text(size = 20)) +
     theme(legend.title = element_text(size = 20)) +
