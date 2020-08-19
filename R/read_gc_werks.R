@@ -14,7 +14,7 @@
 
 read_gc_werks <- function(file_list, verbose = T) {
   
-  map_dfr(file_list,
+  purrr::map_dfr(file_list,
           read_gc_works_worker,
           verbose = verbose)
 }
@@ -58,7 +58,12 @@ read_gc_works_worker <- function(file, verbose) {
   # format date, clean and filter for area columns
   df_clean <- df %>% 
     dplyr::mutate(gc_start_date = paste0(date, time) %>% ymd_hm()) %>% 
-    dplyr::select(gc_start_date, type, sample, standard, port, contains("area")) %>% 
+    dplyr::select(gc_start_date,
+                 # type,
+                #  sample,
+                #  standard,
+                #  port,
+                  contains("area")) %>% 
     dplyr::rename_with(str_remove, everything(), pattern = "_area") %>% 
     as_tibble() %>% 
     clean_names() %>% 
