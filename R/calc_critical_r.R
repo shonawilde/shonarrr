@@ -42,7 +42,8 @@ correlation_summary <- function(df,
            conf_level = conf_level,
            critical_r = calc_critical_r(nrow,
                                         alpha = 1-conf_level),
-           signif = if_else(estimate > critical_r, T, F))
+           signif = if_else(estimate > critical_r, T, F)) %>% 
+    janitor::clean_names()
   
 }
 
