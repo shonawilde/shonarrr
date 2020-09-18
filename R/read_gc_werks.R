@@ -51,7 +51,7 @@ read_gc_works_worker <- function(file, verbose) {
 
   # read tabular data and set columns names
   df <- text %>% 
-    readr::read_table2(skip = 3, col_names = F, na = "nan") %>% 
+    readr::read_table2(skip = 3, col_names = F, na = "nan", guess_max = 999999) %>% 
     dplyr::select(-last_col()) %>% # empty for some reason...
     purrr::set_names(col_names)
   
