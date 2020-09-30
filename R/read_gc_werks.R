@@ -29,14 +29,14 @@ read_gc_works_worker <- function(file, verbose) {
   
   # get names
   compound_names <- text[2] %>% 
-    threadr::str_trim_many_spaces() %>% 
+    stringr::str_squish() %>% 
     stringr::str_split(" ") %>%
     unlist() %>% 
     stringi::stri_remove_empty()
   
   # get extra information about names
-  other_names <- text[3] %>%   
-    threadr::str_trim_many_spaces() %>% 
+  other_names <- text[3] %>%
+    stringr::str_squish() %>% 
     stringr::str_split(" ") %>% 
     unlist() %>% 
     stringi::stri_remove_empty()
