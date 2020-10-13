@@ -4,18 +4,18 @@
 \alias{calc_alpha}
 \title{Calculate alpha}
 \usage{
-calc_alpha(wind_direction, heading)
+calc_alpha(heading, wd = "wd")
 }
 \arguments{
-\item{wind_direction}{Wind direction in degrees}
-
 \item{heading}{Aircraft heading in degrees}
+
+\item{wd}{Wind direction in degrees}
 }
 \value{
-value
+Angle in degrees.
 }
 \description{
-Calculate alpha which is the angle between aircraft track and direction normal to wind direction
+Function to calculate the angle between wind direction and the line perpendicular to the flight track
 }
 \author{
 Shona Wilde
