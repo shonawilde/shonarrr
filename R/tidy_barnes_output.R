@@ -1,3 +1,14 @@
+#' Tidy banres output
+#'
+#' Reads and re-formats MatLab data from Barnes interpolation
+#'
+#' @param file File to read
+#' 
+#' @author Shona Wilde
+#' 
+#' @return Tibble
+#' 
+#' @export
 
 
 tidy_barnes_output <- function(file){
@@ -9,13 +20,13 @@ tidy_barnes_output <- function(file){
   yax <- data[[3]]
   
   matrix_named <- matrix %>% 
-    set_rownames(yax) %>% 
-    set_colnames(xax)
+    trqwe::set_rownames(yax) %>% 
+    trqwe::set_colnames(xax)
   
   df <- matrix_named %>% 
     reshape2::melt(c("altitude", "distance"),
                    value.name = "conc") %>% 
-    as_tibble()
+    tibble::as_tibble()
   
   return(df)
     
