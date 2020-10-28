@@ -62,8 +62,8 @@ read_mass_flux_output_worker <- function(file) {
   df <- meta_data %>% 
     dplyr::bind_cols(data) %>%   
     dplyr::mutate(across(contains("flux"),
-                         kgs_to_tonneyr,
-                  .names = "{.col}_tonnes_yr"),
+                         kgs_to_tonne_day,
+                  .names = "{.col}_tonnes_day"),
            .after = "flux_upper") %>%
     dplyr::mutate(plume = shonarrr::str_tidy(plume)) %>% 
     tibble::as_tibble()

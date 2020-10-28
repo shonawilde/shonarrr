@@ -4,9 +4,9 @@
 #' 
 #' @export
 
-kgs_to_tonneyr <- function(x){
+kgs_to_tonne_day <- function(x){
   
-  x*31536
+  x*86.4
   
 }
 
