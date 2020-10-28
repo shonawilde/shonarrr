@@ -30,8 +30,8 @@ read_mass_flux_output_worker <- function(file) {
   meta_data <- lines[1] %>% 
     stringr::str_remove("# CASE:") %>% 
     stringr::str_split("_") %>% 
-    map(stringr::str_squish) %>% 
-    reduce(dplyr::bind_rows) %>% 
+    purrr::map(stringr::str_squish) %>% 
+    purrr::reduce(dplyr::bind_rows) %>% 
     purrr::set_names(c("flight_no", "plume", "variable")) %>% 
     tibble::enframe() %>% 
     tidyr::pivot_wider()
@@ -58,9 +58,14 @@ read_mass_flux_output_worker <- function(file) {
     tidyr::pivot_wider()
   
   # combine and re-format plume names
+  # convert to tonnes per year
   df <- meta_data %>% 
-    dplyr::bind_cols(data) %>% 
-    mutate(plume = shonarrr::str_tidy(plume)) %>% 
+    dplyr::bind_cols(data) %>%   
+    dplyr::mutate(across(contains("flux"),
+                         kgs_to_tonneyr,
+                  .names = "{.col}_tonnes_yr"),
+           .after = "flux_upper") %>%
+    dplyr::mutate(plume = shonarrr::str_tidy(plume)) %>% 
     tibble::as_tibble()
   
   return(df)
