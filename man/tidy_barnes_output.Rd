@@ -4,10 +4,12 @@
 \alias{tidy_barnes_output}
 \title{Tidy banres output}
 \usage{
-tidy_barnes_output(file)
+tidy_barnes_output(file_list, verbose = T)
 }
 \arguments{
-\item{file}{File to read}
+\item{file_list}{Files to read}
+
+\item{verbose}{Should a message to the user be displayed?}
 }
 \value{
 Tibble
