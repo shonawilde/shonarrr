@@ -37,9 +37,9 @@ read_mass_flux_output_worker <- function(file) {
     tidyr::pivot_wider()
   
   # get calculation results and parameters
-  data <- lines[7:11] %>% 
+  data <- lines[8:13] %>% 
     map(stringr::str_squish) %>% 
-    map(stringr::str_split, " ")%>% 
+    map(stringr::str_split, " ") %>% 
     purrr::flatten() %>% 
     purrr::reduce(c) %>% 
     as.numeric() %>% 
@@ -52,7 +52,8 @@ read_mass_flux_output_worker <- function(file) {
                 "ymin",
                 "ymax",
                 "smooth_param",
-                "background"
+                "background",
+                "std_dev"
     )) %>% 
     tibble::enframe() %>% 
     tidyr::pivot_wider()
@@ -71,8 +72,5 @@ read_mass_flux_output_worker <- function(file) {
   return(df)
   
 }
-
-
-
 
 
