@@ -58,12 +58,13 @@ read_gc_works_worker <- function(file, verbose) {
   # format date, clean and filter for area columns
   df_clean <- df %>% 
     dplyr::mutate(gc_start_date = paste0(date, time) %>% ymd_hm()) %>% 
-    dplyr::select(gc_start_date,
+    relocate(gc_start_date) %>% 
+   # dplyr::select(gc_start_date,
                  # type,
                 #  sample,
                 #  standard,
                 #  port,
-                  contains("area")) %>% 
+                #  contains("area")) %>% 
     dplyr::rename_with(str_remove, everything(), pattern = "_area") %>% 
     as_tibble() %>% 
     clean_names() %>% 
