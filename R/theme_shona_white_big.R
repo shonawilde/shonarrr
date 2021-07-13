@@ -9,7 +9,7 @@
 theme_shona_white_big <- function() {
   theme_minimal() +
     theme(panel.background = element_blank()) +
-    theme(plot.background = element_blank())+
+    theme(plot.background = element_rect(colour = NA))+
     theme(plot.margin = margin(1, 1, 1, 1, "cm"),
           axis.line = element_line()) +                     # facet border
     theme(strip.background = element_blank()) +               # facet title background

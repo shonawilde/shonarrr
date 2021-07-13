@@ -11,7 +11,7 @@
 
 theme_shona_less_minimal <- function() {
   theme_minimal() +
-    theme(plot.background = element_blank())+
+    theme(plot.background = element_rect(colour = NA))+
     theme(plot.margin = margin(1, 1, 1, 1, "cm"),
           axis.line = element_line(colour = "black")) +                     # facet border
     theme(strip.background= element_rect(fill = NA),
