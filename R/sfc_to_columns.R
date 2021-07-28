@@ -23,7 +23,7 @@ sfc_to_columns <- function(data, names = c("longitude", "latitude"), drop_geomet
   coords <- sf::st_coordinates(data) %>% 
     tibble::as_tibble()
   
-  stopifnot("number of columns must be the same length as `names" = length(names) == ncol(data))
+  stopifnot("number of columns must be the same length as `names" = length(names) == ncol(coords))
   
   # remove columns with same names
   data <- data[ ,!names(data) %in% names]
