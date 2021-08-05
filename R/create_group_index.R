@@ -1,12 +1,12 @@
 #' Function to add a group index to data
 #' 
-#' \code{add_group_index} creates groups within data based on a repeating index
+#' \code{add_group_index} creates groups within data based on a repeating index.
 #'
-#' @param x Vector
+#' @param x Vector.
 #' 
-#' @param each Size of groups
+#' @param each Size of groups.
 #' 
-#' @return Value
+#' @return Value.
 #' 
 #' @author Shona Wilde 
 #' 
