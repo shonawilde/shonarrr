@@ -1,4 +1,4 @@
-#' Function to extract geometry coordinates as columns
+#' Function for promoting a data frame to an \code{sf} object
 #'
 #' @param df Data frame to be converted to spatial data frame - currently only works for `POINTS`
 #' 
