@@ -2,16 +2,16 @@
 % Please edit documentation in R/st_from_df.R
 \name{st_from_df}
 \alias{st_from_df}
-\title{Function to extract geometry coordinates as columns}
+\title{Function for promoting a data frame to an \code{sf} object}
 \usage{
 st_from_df(df, latitude = "latitude", longitude = "longitude", crs = 4326)
 }
 \arguments{
 \item{df}{Data frame to be converted to spatial data frame - currently only works for `POINTS`}
 
-\item{latitude}{Latitude varaible in df}
+\item{latitude}{Latitude variable in df}
 
-\item{longitude}{Longitude varaible in df}
+\item{longitude}{Longitude variable in df}
 
 \item{crs}{Coordinate reference system of df}
 }
@@ -19,7 +19,7 @@ st_from_df(df, latitude = "latitude", longitude = "longitude", crs = 4326)
 `sf`object
 }
 \description{
-Function to extract geometry coordinates as columns
+Function for promoting a data frame to an \code{sf} object
 }
 \author{
 Shona Wilde
