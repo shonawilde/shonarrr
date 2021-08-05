@@ -7,15 +7,15 @@
 add_group_index(x, each)
 }
 \arguments{
-\item{x}{Vector}
+\item{x}{Vector.}
 
-\item{each}{Size of groups}
+\item{each}{Size of groups.}
 }
 \value{
-Value
+Value.
 }
 \description{
-\code{add_group_index} creates groups within data based on a repeating index
+\code{add_group_index} creates groups within data based on a repeating index.
 }
 \author{
 Shona Wilde

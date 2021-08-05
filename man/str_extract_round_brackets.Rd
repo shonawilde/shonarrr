@@ -2,19 +2,25 @@
 % Please edit documentation in R/str_extract_round_brackets.R
 \name{str_extract_round_brackets}
 \alias{str_extract_round_brackets}
-\title{Extract text within round brackets}
+\alias{str_extract_square_brackets}
+\alias{str_rm_unicode}
+\title{Functions for string manipulation}
 \usage{
 str_extract_round_brackets(x)
+
+str_extract_square_brackets(x)
+
+str_rm_unicode(x)
 }
 \arguments{
-\item{x}{Input string}
+\item{x}{Input string.}
 }
 \value{
-Output string
+Output string.
 }
 \description{
-Extracts texts contained within round brackets
+Functions for string manipulation
 }
 \author{
-Shona Wilde
+Shona Wilde.
 }
