@@ -28,8 +28,8 @@ theme_shona_less_minimal <- function() {
     theme(panel.spacing = unit(1, "lines")) +
     theme(panel.grid.minor = element_blank()) +
     theme(legend.background = element_blank()) +
-    theme(legend.text = element_text(size = 20)) +
-    theme(legend.title = element_text(size = 20)) +
+    theme(legend.text = element_text(size = 15)) +
+    theme(legend.title = element_text(size = 15)) +
     ggeasy::easy_all_text_colour(colour = "black")
   
   
