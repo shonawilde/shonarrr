@@ -4,7 +4,7 @@
 \alias{theme_shona_white_big}
 \title{Theme Minimal Big}
 \usage{
-theme_shona_white_big()
+theme_shona_white_big(legend_position = "right")
 }
 \description{
 theme_minimal but bigger
