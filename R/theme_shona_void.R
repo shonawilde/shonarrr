@@ -13,6 +13,7 @@ theme_shona_void <- function(legend_position = "top") {
   
   theme_minimal() +
     theme(
+      plot.background = element_rect(fill = "white", colour = NA),
       legend.position = legend_position,
       plot.margin = margin(1, 1, 1, 1, "cm"),
       text = element_text(size = 15),

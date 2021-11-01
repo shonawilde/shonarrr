@@ -9,7 +9,7 @@
 
 
 
-theme_shona_less_minimal <- function() {
+theme_shona_less_minimal <- function(legend_position = "right") {
   theme_minimal() +
     theme(plot.background = element_rect(colour = NA))+
     theme(plot.margin = margin(1, 1, 1, 1, "cm"),
@@ -30,8 +30,7 @@ theme_shona_less_minimal <- function() {
     theme(legend.background = element_blank()) +
     theme(legend.text = element_text(size = 15)) +
     theme(legend.title = element_text(size = 15)) +
+    theme(legend.position = legend_position) +
     ggeasy::easy_all_text_colour(colour = "black")
-  
-  
 }
 
