@@ -2,20 +2,20 @@
 % Please edit documentation in R/find_nearest_date.R
 \name{find_nearest_date}
 \alias{find_nearest_date}
-\title{Function to find the nearest date for two date vectors}
+\title{Function to find the nearest date within a vector}
 \usage{
 find_nearest_date(date, date_match)
 }
 \arguments{
-\item{date}{Date to match to}
+\item{date}{Date to match to.}
 
-\item{date_match}{Date vector for which the closest date to \code{date} should be found}
+\item{date_match}{Date vector for which the closest date to \code{date} should be found.}
 }
 \value{
-Date vector of class \code{POSIXct}
+Date vector of class \code{POSIXct}.
 }
 \description{
-Function to find the nearest date for two date vectors
+Function to find the nearest date within a vector
 }
 \author{
 Shona Wilde & Stuart K. Grange
