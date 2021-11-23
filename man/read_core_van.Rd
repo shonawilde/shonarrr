@@ -2,18 +2,24 @@
 % Please edit documentation in R/read_core_van.R
 \name{read_core_van}
 \alias{read_core_van}
-\title{Calculate Reads core van}
+\title{Read core van data}
 \usage{
-read_core_van(file)
+read_core_van(file_list, tz = "UTC", force_utc = T, verbose = T)
 }
 \arguments{
-\item{file}{file}
+\item{file_list}{files to read}
+
+\item{tz}{a character string that specifies which time zone to parse the date with}
+
+\item{force_utc}{should the date be converted to UTC?}
+
+\item{verbose}{display message to user?}
 }
 \value{
-tibble
+Tibble.
 }
 \description{
-Reads core data fromm WACL van
+Reads core data from the WACL
 }
 \author{
 Shona Wilde

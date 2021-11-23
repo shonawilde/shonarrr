@@ -12,7 +12,7 @@ conv_gps(coord, direction)
 \item{direction}{column containing directional component of coordinates (N, S, E, W)}
 }
 \value{
-value
+Numeric of converted coordinate
 }
 \description{
 Convert GPS data from WACL van to decimal degrees
