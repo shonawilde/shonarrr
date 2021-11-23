@@ -8,27 +8,32 @@
 #' 
 #' @author Shona Wilde
 #' 
-#' @return value
+#' @return Numeric of converted coordinate
 #' 
 #' @export
 
 
 # function to convert coordinates
-conv_gps <- function(coord, direction) {
+conv_gps <- function(coord, direction) 
+{
   
-  # is directional component negative
+  coord <- tryCatch({
+    as.numeric(coord)
+  }, warning = function(w) {
+    coord
+  })
+  
   is_negative <- ifelse(direction %in% c("S", "W"), TRUE, FALSE)
-  
   int <- floor(coord/100)
+  new_coord <- (((coord/100 - int) * 100)/60) + int
   
-  new_coord <- (((coord/100 - int)*100)/60) + int
   
-  suppressWarnings(if (is_negative)
+  suppressWarnings(
     
-    new_coord <- ((((coord/100 - int)*100)/60) + int) *-1)
-  
+    if (is_negative) 
+    new_coord <- ((((coord/100 - int) * 100)/60) + int) * -1
+    
+  )
   
   return(new_coord)
-  
 }
-
