@@ -82,7 +82,8 @@ get_current_weather <- function(api_key, lat = 53.9600, lon = -1.0873) {
     ) %>% 
     mutate(
       date_local = date_utc + shift_from_utc, 
-      .after = date_utc
+      .after = date_utc,
+      name = if_else(str_detect(name, "Zürich"), "Zurich", name)
     )
   
   return(df_tidy)
