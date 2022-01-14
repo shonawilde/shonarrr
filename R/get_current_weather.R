@@ -15,7 +15,6 @@
 #' @export
 
 
-
 get_current_weather <- function(api_key, lat = 53.9600, lon = -1.0873) {
   
   # build api URL
@@ -83,11 +82,15 @@ get_current_weather <- function(api_key, lat = 53.9600, lon = -1.0873) {
     mutate(
       date_local = date_utc + shift_from_utc, 
       .after = date_utc,
-      name = if_else(str_detect(name, "Zürich"), "Zurich", name)
+      name = textclean::replace_non_ascii(name),
+      name = threadr::str_rm_round_brackets(name),
+      name = str_replace(name, "Zurich / Lindenhof", "Zurich"),
+      name = str_replace(name, "Zurich / City", "Zurich")
     )
   
   return(df_tidy)
   
 }
+
 
 
