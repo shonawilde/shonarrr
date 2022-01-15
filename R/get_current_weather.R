@@ -84,8 +84,10 @@ get_current_weather <- function(api_key, lat = 53.9600, lon = -1.0873) {
       .after = date_utc,
       name = textclean::replace_non_ascii(name),
       name = threadr::str_rm_round_brackets(name),
-      name = str_replace(name, "Zurich / Lindenhof", "Zurich"),
-      name = str_replace(name, "Zurich / City", "Zurich")
+      name = if_else(str_detect(name, "Zurich"), "Zurich", name),
+      name = if_else(str_detect(name, "Dubendorf"), "Dubendorf", name)
+      # name = str_replace(name, "Zurich / Lindenhof", "Zurich"),
+      # name = str_replace(name, "Zurich / City", "Zurich")
     )
   
   return(df_tidy)
