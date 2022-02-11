@@ -1,7 +1,7 @@
-#' Tidy model summary 
+#' Tidy RMA output 
 #'
 #' Combines useful model summary functions \code{broom::glance} and \code{broom::tidy} to produce a single tidy summary 
-#' for linear models
+#' from a \code{\link[lmodel2]{lmodel2}} object.
 #'
 #' @param model Model for summarising
 #' 
@@ -12,10 +12,7 @@
 #' @export
 
 
-tidy_model_summary <- function(model) {
-  
-  lifecycle::deprecate_warn("1.0.0", "shonarrr::tidy_model_summary()", "shonarrr::tidy_rma_output()")
-  
+tidy_rma_output <- function(model) {
   
   tidy <- broom::tidy(model) %>% 
     janitor::clean_names() %>% 
@@ -38,6 +35,5 @@ tidy_model_summary <- function(model) {
   return(model_summary)
 
   }
-
 
 
