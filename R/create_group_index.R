@@ -1,29 +1,37 @@
-#' Function to add a group index to data
+#' Function to create groups within data
 #' 
-#' \code{add_group_index} creates groups within data based on a repeating index.
+#' \code{create_group_index} creates groups within data based on a repeating index
 #'
-#' @param x Vector.
+#' @param df Input data frame
 #' 
-#' @param each Size of groups.
+#' @param group_size Size of groups to create
 #' 
-#' @return Value.
+#' @return Tibble
 #' 
 #' @author Shona Wilde 
 #' 
 #' @export
 
-add_group_index <- function(x, each) {
+create_group_index <- function(df, group_size) {
   
-  n <- length(x)
-  m <- n %/% each + 1
-  index <- rep(1:m, each = each)[1:n]
+  df <- as_tibble(df)
   
-  if (n %% each == 1 && n > 1) 
+  n <- nrow(df)
+  m <- n %/% group_size + 1
+  index <- rep(1:m, each = group_size)[1:n]
+  
+  if (n %% group_size == 1 && n > 1) {
     
     index[n-1] <- index[n]
+    
+  }
   
-  return (as.factor(index))
+  df$group <- index
+  
+  return(df)
   
 }
+
+
 
 
