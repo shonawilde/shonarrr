@@ -3,7 +3,7 @@
 #'
 #' Splits up flight data into straight level runs and profiles which are defined in flight summary
 #'
-#' @param flight_data merge file containing flight data. Date must be called "date" and of class \code{POSICXct]
+#' @param flight_data merge file containing flight data. Date must be called "date" and of class \code{POSICXct}
 #' 
 #' @param flight_sum FAAM flight summary read using \code{\link{read_faam_flight_summary}}
 #' 

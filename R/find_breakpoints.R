@@ -31,7 +31,7 @@ find_breakpoints <- function(df,  h = 0.15, breaks = NULL){
   
 }
 
-
+#' @rdname find_breakpoints
 #' @export 
 get_break_numbers <- function(x){
   
