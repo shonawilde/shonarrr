@@ -7,6 +7,8 @@
 get_flight_events(flight_data, flight_sum)
 }
 \arguments{
+\item{flight_data}{merge file containing flight data. Date must be called "date" and of class \code{POSICXct}}
+
 \item{flight_sum}{FAAM flight summary read using \code{\link{read_faam_flight_summary}}}
 }
 \value{
