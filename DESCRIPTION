@@ -1,5 +1,5 @@
 Package: shonarrr
-Version: 0.0.2
+Version: 0.1.0
 Date: 2019-10-03
 Title: shonarrr
 Decription: personal functions for the analysis of air quality data :baby_chick:
@@ -20,3 +20,12 @@ Remotes:
     github::skgrange/threadr
 RoxygenNote: 7.1.2
 LazyLoad: yes
+Imports: 
+    rlang,
+    ggplot2,
+    magrittr,
+    lifecycle,
+    cli,
+    glue,
+    withr
+License: GPL (>= 3)
