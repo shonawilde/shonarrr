@@ -1,6 +1,8 @@
 #' Theme Minimal Big
 #'
-#' theme_minimal but bigger
+#' \link{ggplot2}{theme_minimal} but bigger
+#' 
+#' @param legend_position Location of legend - choices are "top", "bottom", "right", or  "left".
 #' 
 #' @author Shona Wilde
 #' 

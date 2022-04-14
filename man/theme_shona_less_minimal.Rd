@@ -4,7 +4,7 @@
 \alias{theme_shona_less_minimal}
 \title{Theme Less Minimal Big}
 \usage{
-theme_shona_less_minimal(legend_position = "right")
+theme_shona_less_minimal(legend_position = "right", grid_type = "dashed")
 }
 \description{
 theme_minimal but bigger and less minimal

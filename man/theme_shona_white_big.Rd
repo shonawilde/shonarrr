@@ -6,8 +6,11 @@
 \usage{
 theme_shona_white_big(legend_position = "right")
 }
+\arguments{
+\item{legend_position}{Location of legend - choices are "top", "bottom", "right", or  "left".}
+}
 \description{
-theme_minimal but bigger
+\link{ggplot2}{theme_minimal} but bigger
 }
 \author{
 Shona Wilde
