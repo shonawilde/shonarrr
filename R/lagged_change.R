@@ -9,7 +9,7 @@
 #' 
 #' @author Shona Wilde
 #'
-#' @return Numeric vector of the same length as \code{x}
+#' @return Numeric vector of the same length as \code{x} 
 #' 
 #' @export
 
@@ -17,11 +17,11 @@ lagged_change <- function(x, type = "percent") {
   
   lag <- lag(x, 1)
   
-  change <-  abs(percentage_change(lag, x))
+  change <- percentage_change(lag, x)
   
   if (type == "absolute") {
     
-    change <- lag - x
+    change <- x - lag
   }
   
   return(change)
