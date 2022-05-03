@@ -12,7 +12,7 @@
 
 centre <- function(x, standardise = F) {
   
-  mean <- mean(x)
+  mean <- mean(x, na.rm = T)
   
   x <- x-mean
   

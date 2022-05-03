@@ -17,7 +17,7 @@ tidy_lm_output <- function(model){
 
   df_model <- summary$coefficients %>%
     as_tibble(rownames = "term") %>%
-    clean_names() %>%
+    janitor::clean_names() %>%
     rename(
       value = estimate,
       p_value = pr_t,
