@@ -29,7 +29,7 @@ theme_shona_less_minimal <- function(legend_position = "right", grid_type = "das
     theme(panel.grid = element_line(linetype = grid_type))+
     theme(panel.grid.minor = element_blank()) +
     theme(legend.background = element_blank()) +
-    theme(legend.text = element_text(size = 12.5)) +
+    theme(legend.text = element_text(size = 15)) +
     theme(legend.title = element_text(size = 15)) +
     theme(legend.position = legend_position) +
     ggeasy::easy_all_text_colour(colour = "black")
