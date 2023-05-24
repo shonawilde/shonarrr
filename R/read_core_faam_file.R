@@ -37,7 +37,8 @@ read_core_faam_worker <- function(file, verbose) {
     lubridate::ymd_hms(tz = "UTC")
   
   # get flight number
-  flight_no <- meta_data[str_which(meta_data, "! FLIGHT")] %>% 
+  flight_no <- meta_data[str_which(meta_data, "flight_number")] %>% 
+    #meta_data[str_which(meta_data, "! FLIGHT")] %>% 
     str_sub(start = -4, end = -1) %>% 
     str_to_lower()
   
@@ -51,12 +52,19 @@ read_core_faam_worker <- function(file, verbose) {
     dplyr::rename_all(. %>% tolower())
   
   # format date and rearrange
-  df <- df %>% 
-    dplyr::mutate(date = time + flight_date,
-                  flight_no = flight_no) %>% 
-    dplyr::select(date, flight_no, dplyr::everything(), -time) %>% 
+  df_tidy <- df %>% 
+    dplyr::mutate(
+      date = time + flight_date,
+      flight_no = flight_no
+    ) %>% 
+    dplyr::select(
+      date, 
+      flight_no,
+      dplyr::everything(), 
+      -time
+    ) %>% 
     as_tibble()
   
-  return(df)
+  return(df_tidy)
   
 }
