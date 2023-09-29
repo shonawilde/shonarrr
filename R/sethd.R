@@ -1,6 +1,8 @@
 #' Set home directory
 #' 
 #' Set home directory based on the current operating system
+#' 
+#' @param drive Name of drive to work from. Either "google" or "one".
 #'
 #' @return \code{sethd} returns the current directory before the change as in \code{setwd}.
 #' 
@@ -8,22 +10,44 @@
 #' 
 #' @export
 
-sethd <- function() {
+sethd <- function(drive = "google") {
   
   system <- Sys.info()[1]
   
-  if (system == "Windows") {
+  if (drive == "google")
+  {
     
-    dir <- setwd("G:/My Drive/")
+    if (system == "Windows") {
+      
+      dir <- setwd("G:/My Drive/")
+      
+    }
+    
+    if (system == "Darwin") {
+      
+      dir <- setwd("~/Google Drive/My Drive/")
+    }
     
   }
   
-  if (system == "Darwin") {
+  if (drive == "one") {
     
-    dir <- setwd("~/Google Drive/My Drive/")
+    if (system == "Windows") {
+      
+      dir <- setwd("C:/Users/Shona/OneDrive - Carleton University/")
+      
+    }
+    
+    if (system == "Darwin") {
+      
+      dir <- setwd("~/OneDrive - Carleton University/")
+    }
+    
   }
-
+    
+  
+  
   return(invisible(dir))
   
 }
-  
+

@@ -4,7 +4,10 @@
 \alias{sethd}
 \title{Set home directory}
 \usage{
-sethd()
+sethd(drive = "google")
+}
+\arguments{
+\item{drive}{Name of drive to work from. Either "google" or "one".}
 }
 \value{
 \code{sethd} returns the current directory before the change as in \code{setwd}.
