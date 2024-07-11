@@ -1,10 +1,8 @@
-#' Paste symbol
-#' 
 #' Function to paste symbols. Useful for labelling axis.
 #'
 #' @param x R object to be converted into a character vector
 #' 
-#' @param symbol Symbol. Default is '%'. 
+#' @param symbol Symbol. Default is %. 
 #' 
 #' @param position Position to paste symbol relative to vector. Either "start" or "end".
 #'
