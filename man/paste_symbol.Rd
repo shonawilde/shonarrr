@@ -2,14 +2,14 @@
 % Please edit documentation in R/paste_symbol.R
 \name{paste_symbol}
 \alias{paste_symbol}
-\title{Paste symbol}
+\title{Function to paste symbols. Useful for labeling axis.}
 \usage{
 paste_symbol(x, symbol = "\%", position = "end", remove_space = T)
 }
 \arguments{
 \item{x}{R object to be converted into a character vector}
 
-\item{symbol}{Symbol. Default is '%'.}
+\item{symbol}{Symbol. Default is %.}
 
 \item{position}{Position to paste symbol relative to vector. Either "start" or "end".}
 }
@@ -17,7 +17,7 @@ paste_symbol(x, symbol = "\%", position = "end", remove_space = T)
 A character vector of the concatenated values.
 }
 \description{
-Function to paste symbols. Useful for labelling axis.
+Function to paste symbols. Useful for labeling axis.
 }
 \author{
 Shona Wilde
