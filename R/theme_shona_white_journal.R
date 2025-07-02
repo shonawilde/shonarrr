@@ -52,11 +52,11 @@ theme_shona_white_journal <- function(legend_position = "right", grid_type = "da
         strip.text = element_text(size = text_size),
         axis.title.y = element_text(
           size = text_size,
-          margin = margin(t = 0, r = 5, b = 0, l = 0)
+          margin = margin(t = 0, r = 3, b = 0, l = 0)
         ),
         axis.title.x = element_text(
           size = text_size,
-          margin = margin(t = 5, r = 0, b = 0, l = 0)
+          margin = margin(t = 3, r = 0, b = 0, l = 0)
         ),
         panel.spacing = unit(1, "lines"),
         legend.margin=margin(c(1,1,1,1)),
