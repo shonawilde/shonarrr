@@ -12,7 +12,7 @@
 #' 
 #' @export
 
-add_group_identifier <- function(df, type = "numbers", as_factor = F) {
+add_group_identifier <- function(df, type = "numbers", name = "group", as_factor = F) {
   
   stopifnot(
     "Type must be one of 'numbers' or 'letters'" = type %in% c("numbers", "letters")
@@ -37,7 +37,16 @@ add_group_identifier <- function(df, type = "numbers", as_factor = F) {
     df_group$group <- as.factor(df_group$group)
   }
   
-  return(as_tibble(df_group))
+  # rename
+  df_group_rename <- df_group %>% 
+    relocate(
+      group, .before = 1
+    ) %>%
+    rename(
+      {{name}} := group
+    )
+  
+  return(as_tibble(df_group_rename))
   
   
 }
