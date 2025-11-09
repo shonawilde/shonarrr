@@ -1,4 +1,4 @@
-#' Function to paste symbols. Useful for labelling axis.
+#' Function to paste symbols. Useful for labeling axis.
 #'
 #' @param x R object to be converted into a character vector
 #' 
